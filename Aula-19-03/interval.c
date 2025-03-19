@@ -19,28 +19,36 @@ int main()
     }
     else
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
 
-            if (n <= number[i + 1])
+            if (n <= number[i])
             {
-                if (i + 1 < n)
+
+                if (number[i - 1] == 0)
                 {
                     ind = 1;
                 }
-
-                printf("Intervalo %c%.f,%.f]\n", simbols[ind], number[i], number[i + 1]);
-                break;
-            }
-            else if (number[i] > n)
-            {
-                if (i + 1 > n)
+                else
                 {
                     ind = 0;
                 }
-                printf("Intervalo %c%.f,%.f]\n", simbols[ind], number[i], number[i + 1]);
-                break;
+                if (number[i] > 0)
+                {
+                    printf("Intervalo %c%.f,%.f]\n", simbols[ind], number[i - 1], number[i]);
+                    break;
+                }else{
+                    printf("Intervalo %c%.f,%.f]\n", simbols[ind], number[i], number[i+1]);
+                    break;
+                }
             }
+            // else if (n > number[i])
+            // {
+            //         ind = 0;
+
+            //     printf("Intervalo %c%.f,%.f]\n", simbols[ind], number[i], number[i + 1]);
+            //     break;
+            // }
         }
     }
     return 0;
