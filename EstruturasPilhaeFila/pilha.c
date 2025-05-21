@@ -12,7 +12,7 @@ typedef struct No{
 No *topo_da_pilha = NULL;
 
 void push(int novoDado){
-    No *novoNo = malloc(sizeof(No));// novoNo armazena o endereco de memoria retronado pelo malloc(malloc retorna o primeiro endereco de memoria)
+    No *novoNo = (No *)malloc(sizeof(No));// novoNo armazena o endereco de memoria retornado pelo malloc(malloc retorna o primeiro endereco de memoria)
 
     if(novoNo == NULL){
         fprintf(stderr, "Erro na alocação de memória!\n");
@@ -21,7 +21,7 @@ void push(int novoDado){
 
     (*novoNo).dado = novoDado; // ou novoNo->dado = novoDado
     (*novoNo).proximo = topo_da_pilha;
-    topo_da_pilha = novoNo; // topo_da_pilha recebe o endereco de memoira que esta armazanado no novoNo, novoNo possui o endereco de memoria de um novo no que foi criado pelo malloc.
+    topo_da_pilha = novoNo; // topo_da_pilha recebe o endereco de memoria que esta armazanado no novoNo, novoNo possui o endereco de memoria de um novo no que foi criado pelo malloc.
 
 }
 
